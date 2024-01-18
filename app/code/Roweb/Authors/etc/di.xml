@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Roweb\Authors\Api\AuthorRepositoryInterface" type="Roweb\Authors\Model\AuthorRepository"/>
+	<preference for="Roweb\Authors\Api\Data\AuthorInterface" type="Roweb\Authors\Model\Author"/>
+	<preference for="Roweb\Authors\Api\Data\AuthorSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Roweb\Authors\Model\ResourceModel\Author\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">roweb_authors_author</argument>
+			<argument name="resourceModel" xsi:type="string">Roweb\Authors\Model\ResourceModel\Author\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="roweb_authors_author_listing_data_source" xsi:type="string">Roweb\Authors\Model\ResourceModel\Author\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

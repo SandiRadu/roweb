@@ -1,0 +1,52 @@
+<?php
+/** @var \Roweb\Authors\Block\Template $block */
+?>
+
+<?php $collection = $block->getAuthorsCollection(); ?>
+<?php if ($collection->count() > 0): ?>
+    <?php if ($block->getPagerHtml()): ?>
+    <?php endif ?>
+    <table class="data table" id="authors-data-table">
+        <caption class="table-caption">Roweb Authors Data</caption>
+        <thead>
+            <tr>
+                <th scope="col" class="col name">Author Name</th>
+                <th scope="col" class="col description">Author Description</th>
+                <!-- <th scope="col" class="col image">Image</th> -->
+                <th scope="col" class="col actions">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($collection as $key => $data): ?>
+                <tr>
+                    <td data-th="Name" class="col name">
+                        <?php echo $data->getName(); ?>
+                    </td>
+                    <td data-th="Description" class="col description">
+                        <?php echo $data->getDescription(); ?>
+                    </td>
+                    <td data-th="Image" class="col image">
+                        <?php if ($data->getImage()): ?>
+                            <img width="70" height="70" src="<?php echo $block->getBaseUrl() . 'media/' . $data->getImage(); ?>">
+                        <?php else: ?>
+                            <p>No Image</p>
+                        <?php endif; ?>
+                    </td>
+                    <td data-th="Actions" class="col actions">
+                        <?php $id = ($data->getAuthorId()) ? $data->getAuthorId() : $data['authors_id']; ?>
+                        <a href="<?php echo $block->getBaseUrl() . 'authors/index/view/id/' . $id; ?>" class="action view">
+                            <span>View</span>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="order-products-toolbar toolbar bottom">
+            <?php echo $block->getPagerHtml(); ?>
+        </div>
+    <?php endif ?>
+<?php else: ?>
+    <h2>We couldn't find any records</h2>
+<?php endif; ?>

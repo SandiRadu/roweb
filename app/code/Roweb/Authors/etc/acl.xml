@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Roweb_Authors::Author" title="Author" sortOrder="10">
+					<resource id="Roweb_Authors::Author_save" title="Save Author" sortOrder="10"/>
+					<resource id="Roweb_Authors::Author_delete" title="Delete Author" sortOrder="20"/>
+					<resource id="Roweb_Authors::Author_update" title="Update Author" sortOrder="30"/>
+					<resource id="Roweb_Authors::Author_view" title="View Author" sortOrder="40"/>
+				</resource>
+			</resource>
+		</resources>
+	</acl>
+</config>

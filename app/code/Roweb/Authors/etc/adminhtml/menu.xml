@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Roweb::top_level" title="Roweb" module="Roweb_Authors" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="Roweb_Authors::roweb_authors_author" title="Author" module="Roweb_Authors" sortOrder="9999" resource="Magento_Backend::content" parent="Roweb::top_level" action="roweb_authors/author/index"/>
+	</menu>
+</config>
