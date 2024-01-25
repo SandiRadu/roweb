@@ -9,5 +9,33 @@
                 <a href="<?php echo $block->getBaseUrl() . 'authors/index/list'; ?>">(Visit List Page)</a>
             </span>
         </legend><br>
+        <div class="field note no-label">Add New Author</div>
+        <div class="field name">
+            <label class="label" for="name"><span>Name</span></label>
+            <div class="control">
+                <input name="name" id="name" title="Name" value="" class="input-text" type="text"
+                    data-validate="{required:true}">
+            </div>
+        </div>
+        <div class="field description">
+            <label class="label" for="content"><span>Description</span></label>
+            <div class="description">
+                <textarea name="content" id="description" title="Description" class="input-text" cols="5" rows="3"
+                    data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+        <div class="field image">
+            <label class="label" for="image"><span>Image</span></label>
+            <div class="control">
+                <input name="image" id="image" title="Image" value="" class="input-text" type="file">
+            </div>
+        </div>
     </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="Submit" class="action submit primary">
+                <span>Submit</span>
+            </button>
+        </div>
+    </div>
 </form>

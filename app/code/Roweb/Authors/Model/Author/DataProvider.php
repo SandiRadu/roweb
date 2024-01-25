@@ -88,21 +88,21 @@ class DataProvider extends AbstractDataProvider
 
         // dd($items);
 
-        $loadedData = $model->getData();
-        $image = $loadedData['feature_image'];
+        // $loadedData = $model->getData();
+        // $image = $loadedData['feature_image'];
 
-        $baseUrl = $this->storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
-        $imgPath = 'tmp/imageUploader/images';
-        $fullImagePath = $this->mediaDirectory->getAbsolutePath($imgPath) . '/' . $image;
+        // $baseUrl = $this->storeManager->getStore()->getBaseUrl(UrlInterface::URL_TYPE_MEDIA);
+        // $imgPath = 'tmp/imageUploader/images';
+        // $fullImagePath = $this->mediaDirectory->getAbsolutePath($imgPath) . '/' . $image;
 
-        $imageUrl = $baseUrl . $imgPath . '/' . $image;
-        $stat = $this->mediaDirectory->stat($fullImagePath);
+        // $imageUrl = $baseUrl . $imgPath . '/' . $image;
+        // $stat = $this->mediaDirectory->stat($fullImagePath);
 
-        $loadedData['feature_image'] = null;
-        $loadedData['feature_image'][0]['url'] = $imageUrl;
-        $loadedData['feature_image'][0]['name'] = $image;
-        $loadedData['feature_image'][0]['size'] = $stat['size'];
-        $loadedData['feature_image'][0]['type'] = $this->mime->getMimeType($fullImagePath);
+        // $loadedData['feature_image'] = null;
+        // $loadedData['feature_image'][0]['url'] = $imageUrl;
+        // $loadedData['feature_image'][0]['name'] = $image;
+        // $loadedData['feature_image'][0]['size'] = $stat['size'];
+        // $loadedData['feature_image'][0]['type'] = $this->mime->getMimeType($fullImagePath);
 
         return $this->loadedData;
     }
