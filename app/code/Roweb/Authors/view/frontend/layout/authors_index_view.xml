@@ -6,7 +6,7 @@
 	</head>
     <body>
         <referenceContainer name="content">
-            <block class="Roweb\Authors\Block\AuthorView" name="authors.view" template="Roweb_Authors::view.phtml" cacheable="false">
+            <block class="Roweb\Authors\Block\AuthorView" name="author.view" template="Roweb_Authors::view.phtml" cacheable="false">
             </block>
         </referenceContainer>
     </body>

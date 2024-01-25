@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
- */
 declare(strict_types=1);
 
 namespace Roweb\Authors\Controller\Adminhtml\Author;
@@ -35,7 +31,7 @@ class InlineEdit extends \Magento\Backend\App\Action
         $resultJson = $this->jsonFactory->create();
         $error = false;
         $messages = [];
-        
+
         if ($this->getRequest()->getParam('isAjax')) {
             $postItems = $this->getRequest()->getParam('items', []);
             if (!count($postItems)) {
@@ -55,7 +51,7 @@ class InlineEdit extends \Magento\Backend\App\Action
                 }
             }
         }
-        
+
         return $resultJson->setData([
             'messages' => $messages,
             'error' => $error

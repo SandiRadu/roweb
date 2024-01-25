@@ -1,0 +1,13 @@
+{
+    "roweb_authors_author": {
+        "column": {
+            "author_id": true,
+            "name": true,
+            "description": true,
+            "feature_image": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

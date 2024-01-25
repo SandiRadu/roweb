@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Roweb\Authors\Controller\Index;
 
 use Magento\Framework\Exception\NotFoundException;
@@ -28,6 +30,7 @@ class View extends \Magento\Framework\App\Action\Action
         $this->_authorsview = $authorsview;
         return parent::__construct($context);
     }
+
     /**
      * View page action
      *

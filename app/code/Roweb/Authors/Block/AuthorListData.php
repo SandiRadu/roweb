@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 namespace Roweb\Authors\Block;
@@ -8,7 +7,7 @@ use Magento\Framework\View\Element\Template\Context;
 use Roweb\Authors\Model\AuthorFactory;
 
 /**
- * Authors List block
+ * Author List block
  */
 class AuthorListData extends \Magento\Framework\View\Element\Template
 {
@@ -27,22 +26,22 @@ class AuthorListData extends \Magento\Framework\View\Element\Template
 
     public function _prepareLayout()
     {
-        $this->pageConfig->getTitle()->set(__('Authors List Page'));
+        $this->pageConfig->getTitle()->set(__('Author List Page'));
 
-        if ($this->getAuthorsCollection()) {
+        if ($this->getAuthorCollection()) {
             $pager = $this->getLayout()->createBlock(
                 'Magento\Theme\Block\Html\Pager',
                 'roweb.authors.pager'
             )->setAvailableLimit(array(5 => 5, 10 => 10, 15 => 15))->setShowPerPage(true)->setCollection(
-                    $this->getAuthorsCollection()
+                    $this->getAuthorCollection()
                 );
             $this->setChild('pager', $pager);
-            $this->getAuthorsCollection()->load();
+            $this->getAuthorCollection()->load();
         }
         return parent::_prepareLayout();
     }
 
-    public function getAuthorsCollection()
+    public function getAuthorCollection()
     {
         $page = ($this->getRequest()->getParam('p')) ? $this->getRequest()->getParam('p') : 1;
         $pageSize = ($this->getRequest()->getParam('limit')) ? $this->getRequest()->getParam('limit') : 5;

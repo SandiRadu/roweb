@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 namespace Roweb\Authors\Controller\Index;
 
 class ListAction extends \Magento\Framework\App\Action\Action

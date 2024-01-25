@@ -1,8 +1,4 @@
 <?php
-/**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
- */
 declare(strict_types=1);
 
 namespace Roweb\Authors\Controller\Adminhtml;
@@ -11,7 +7,7 @@ abstract class Author extends \Magento\Backend\App\Action
 {
 
     const ADMIN_RESOURCE = 'Roweb_Authors::top_level';
-    protected $_coreRegistry;
+    protected $coreRegistry;
 
     /**
      * @param \Magento\Backend\App\Action\Context $context

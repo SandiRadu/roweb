@@ -7,6 +7,6 @@
 		</constraint>
 		<column name="name" nullable="true" xsi:type="text" comment="name"/>
 		<column name="description" nullable="true" xsi:type="text" comment="description"/>
-		<column name="image" nullable="true" xsi:type="text" comment="image"/>
+		<column name="feature_image" nullable="true" xsi:type="text" comment="image"/>
 	</table>
 </schema>

@@ -44,10 +44,10 @@ class Thumbnail extends \Magento\Ui\Component\Listing\Columns\Column
                 \Magento\Framework\UrlInterface::URL_TYPE_MEDIA
             );
             foreach ($dataSource['data']['items'] as &$item) {
-                if ($item['image']) {
-                    $item[$fieldName . '_src'] = $path . $item['image'];
+                if ($item['feature_image']) {
+                    $item[$fieldName . '_src'] = $path . $item['feature_image'];
                     $item[$fieldName . '_alt'] = $item['title'];
-                    $item[$fieldName . '_orig_src'] = $path . $item['image'];
+                    $item[$fieldName . '_orig_src'] = $path . $item['feature_image'];
                 } else {
                     // please place your placeholder image at pub/media/roweb/authors/placeholder/placeholder.jpg
                     $item[$fieldName . '_src'] = $path . 'roweb/authors/placeholder/placeholder.jpg';

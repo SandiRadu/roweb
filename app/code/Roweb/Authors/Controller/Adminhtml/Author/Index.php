@@ -1,15 +1,10 @@
 <?php
-/**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
- */
 declare(strict_types=1);
 
 namespace Roweb\Authors\Controller\Adminhtml\Author;
 
 class Index extends \Magento\Backend\App\Action
 {
-
     protected $resultPageFactory;
 
     /**

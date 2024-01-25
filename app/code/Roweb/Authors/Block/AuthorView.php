@@ -1,32 +1,34 @@
 <?php
+declare(strict_types=1);
+
 namespace Roweb\Authors\Block;
 
 use Magento\Framework\View\Element\Template\Context;
-use Roweb\Authors\Model\AuthorsFactory;
+use Roweb\Authors\Model\AuthorFactory;
 use Magento\Cms\Model\Template\FilterProvider;
 
 /**
- * Authors View block
+ * Author View block
  */
 class AuthorView extends \Magento\Framework\View\Element\Template
 {
     /**
      * @var Author
      */
-    protected $_authors;
+    protected $_author;
     public function __construct(
         Context $context,
-        AuthorFactory $authors,
+        AuthorFactory $author,
         FilterProvider $filterProvider
     ) {
-        $this->_authors = $authors;
+        $this->_author = $author;
         $this->_filterProvider = $filterProvider;
         parent::__construct($context);
     }
 
     public function _prepareLayout()
     {
-        $this->pageConfig->getTitle()->set(__('Author Page'));
+        $this->pageConfig->getTitle()->set(__('Author View Page'));
 
         return parent::_prepareLayout();
     }
@@ -34,8 +36,10 @@ class AuthorView extends \Magento\Framework\View\Element\Template
     public function getSingleData()
     {
         $id = $this->getRequest()->getParam('id');
-        $authors = $this->_authors->create();
-        $singleData = $authors->load($id);
+        $author = $this->_author->create();
+
+        $singleData = $author->load($id);
+
         if ($singleData->getAuthorId() || $singleData['author_id']) {
             return $singleData;
         } else {

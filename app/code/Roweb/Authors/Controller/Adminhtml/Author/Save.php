@@ -1,15 +1,11 @@
 <?php
-/**
- * Copyright ©  All rights reserved.
- * See COPYING.txt for license details.
- */
 declare(strict_types=1);
 
 namespace Roweb\Authors\Controller\Adminhtml\Author;
 
 use Magento\Framework\Exception\LocalizedException;
 
-class Save extends \Roweb\Authors\Controller\Adminhtml\Author
+class Save extends \Magento\Backend\App\Action
 {
 
     protected $dataPersistor;
@@ -38,51 +34,6 @@ class Save extends \Roweb\Authors\Controller\Adminhtml\Author
         $data = $this->getRequest()->getPostValue();
         if ($data) {
 
-            // start upload image
-            // if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
-            //     try {
-            //         $uploaderFactory = $this->uploaderFactory->create(['fileId' => 'image']);
-            //         $uploaderFactory->setAllowedExtensions(['jpg', 'jpeg', 'gif', 'png']);
-            //         $imageAdapter = $this->adapterFactory->create();
-            //         $uploaderFactory->addValidateCallback('custom_image_upload', $imageAdapter, 'validateUploadFile');
-            //         $uploaderFactory->setAllowRenameFiles(true);
-            //         $uploaderFactory->setFilesDispersion(true);
-            //         $mediaDirectory = $this->filesystem->getDirectoryRead($this->directoryList::MEDIA);
-            //         $destinationPath = $mediaDirectory->getAbsolutePath('roweb/authors');
-            //         $result = $uploaderFactory->save($destinationPath);
-            //         if (!$result) {
-            //             throw new LocalizedException(
-            //                 __('File cannot be saved to path: $1', $destinationPath)
-            //             );
-            //         }
-
-            //         $imagePath = 'roweb/authors' . $result['file'];
-            //         $data['image'] = $imagePath;
-            //     } catch (\Exception $e) {
-            //     }
-            // }
-
-            // if (isset($data['image']['delete']) && $data['image']['delete'] == 1) {
-            //     $mediaDirectory = $this->filesystem->getDirectoryRead($this->directoryList::MEDIA)->getAbsolutePath();
-            //     $file = $data['image']['value'];
-            //     $imgPath = $mediaDirectory . $file;
-            //     if ($this->_file->isExists($imgPath)) {
-            //         $this->_file->deleteFile($imgPath);
-            //     }
-            //     $data['image'] = NULL;
-            // }
-            // if (isset($data['image']['value'])) {
-            //     $data['image'] = $data['image']['value'];
-            // }
-            // $inputFilter = new \Zend_Filter_Input(
-            //     [],
-            //     [],
-            //     $data
-            // );
-            // $data = $inputFilter->getUnescaped();
-
-            // end upload image
-
             $id = $this->getRequest()->getParam('author_id');
 
             $model = $this->_objectManager->create(\Roweb\Authors\Model\Author::class)->load($id);
@@ -90,6 +41,12 @@ class Save extends \Roweb\Authors\Controller\Adminhtml\Author
                 $this->messageManager->addErrorMessage(__('This Author no longer exists.'));
                 return $resultRedirect->setPath('*/*/');
             }
+
+            // if (!empty($data['feature_image'][0]['name'] && isset($data['feature_image'][0]['temp_name']))) {
+            //     $data['feature_image'] = $data['feature_image'][0]['name']; 
+            // } else {
+            //     unset($data['feature_image']);
+            // }
 
             $model->setData($data);
 
@@ -114,4 +71,3 @@ class Save extends \Roweb\Authors\Controller\Adminhtml\Author
         return $resultRedirect->setPath('*/*/');
     }
 }
-
